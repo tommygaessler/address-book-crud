@@ -5,8 +5,23 @@
 {% block content %}
 
   <div class="container">
-    <h1>{{title}}</h1>
-    <h2>The sum is {{sum}}</h2>
+    <h1>{{ title }}</h1>
+    <button type="button" class="btn btn-success add-contact">Add Contact</button>
+    {% for contact in contacts %}
+    <div class="row well well-lg">
+      <div class="col-md-2">
+        <img class="img-responsive" src="{{ contact.image_url }}" alt="" />
+      </div>
+      <div class="col-md-10">
+        <h2>{{ contact.first_name }} {{ contact.last_name }}</h2>
+        <button type="button" class="btn btn-danger delete-contact" data-id="{{ contact.id }}">Delete</button>
+        <button type="button" class="btn btn-warning edit-contact" data-id="{{ contact.id }}">Edit</button>
+        <a href="#">{{ contact.phone_number }}</a>
+        <a href="mailto:{{ contact.email_address }}">{{ contact.email_address }}</a>
+        <p>{{ contact.line_1 }}{% if contact.line_2 %} {{ contact.line_2 }} {% endif %}, {{ contact.city }} {{ contact.state }}, {{ contact.zip }}</p>
+      </div>
+    </div>
+    {% endfor %}
   </div>
 
 {% endblock %}
