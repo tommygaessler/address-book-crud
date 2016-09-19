@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
           line_1: '6400 S Lewiston Way',
           line_2: '',
           city: 'Aurora',
-          state: 'CO', 
+          state: 'CO',
           zip: '80016'
         })
       ]);
