@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+  display: inline-block;
+}
+
+.add-contact {
+  float: right;
+  margin-top: 21px;
+}
+
+.edit-contact {
+  float: right;
+}
+
+.delete-contact {
+  float: right;
+}
+
+h2 {
+  display: inline-block;
+}
+
+a {
+  display: block;
 }
