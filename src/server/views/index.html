@@ -6,19 +6,24 @@
 
   <div class="container">
     <h1>{{ title }}</h1>
-    <button type="button" class="btn btn-success add-contact">Add Contact</button>
+    <button type="button" class="btn btn-success add-contact" data-toggle="modal" data-target="#myModal">Add Contact</button>
+    {% include "_modal.html" %}
     {% for contact in contacts %}
     <div class="row well well-lg">
       <div class="col-md-2">
         <img class="img-responsive" src="{{ contact.image_url }}" alt="" />
       </div>
-      <div class="col-md-10">
+      <div class="col-md-6">
         <h2>{{ contact.first_name }} {{ contact.last_name }}</h2>
-        <button type="button" class="btn btn-danger delete-contact" data-id="{{ contact.id }}">Delete</button>
-        <button type="button" class="btn btn-warning edit-contact" data-id="{{ contact.id }}">Edit</button>
         <a href="#">{{ contact.phone_number }}</a>
         <a href="mailto:{{ contact.email_address }}">{{ contact.email_address }}</a>
         <p>{{ contact.line_1 }}{% if contact.line_2 %} {{ contact.line_2 }} {% endif %}, {{ contact.city }} {{ contact.state }}, {{ contact.zip }}</p>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-warning btn-block edit-contact" data-id="{{ contact.contact_id }}">Edit</button>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-danger btn-block delete-contact" data-id="{{ contact.contact_id }}" id="delete-contact">Delete</button>
       </div>
     </div>
     {% endfor %}
