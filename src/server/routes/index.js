@@ -7,6 +7,7 @@ router.get('/', (req, res, next) => {
   knex('contacts')
   .select('contacts.id AS contact_id', 'addresses.id AS address_id', '*')
   .innerJoin('addresses', 'addresses.id', 'contacts.address_id')
+  .orderBy('first_name', 'asc')
   .then((contacts) => {
     const contactsObject = {};
     contactsObject.title = 'Contacts';
@@ -85,7 +86,7 @@ router.put('/contacts/edit/:id', (req, res, next) => {
     zip: zip
   }, '*')
   .then((data) => {
-    knex('contacts')
+    return knex('contacts')
     .where('id', id)
     .update({
       first_name: first_name,
