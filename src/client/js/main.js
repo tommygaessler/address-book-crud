@@ -1,7 +1,5 @@
 (function () {
 
-  console.log('sanity check!');
-
   $('button#delete-contact').on('click', function() {
     const id = $(this).data('id');
     console.log(id);
@@ -26,7 +24,6 @@
 
   $('#add-contact-form select').change(function() {
     const id = $(`select option:selected`).val();
-    console.log(id);
 
     if (id === 'default') {
       $(`#line_1`).val('');
@@ -61,7 +58,6 @@
 
   $('.edit-contact-form select').on('change', function() {
     const id = $('option:selected', this).val();
-    console.log($('option:selected', this).val());
 
     if (id === 'default') {
       $(`.edit-contact-form #line_1`).val('');
@@ -103,6 +99,7 @@
     const last_name = $(`#last_name`, this).val();
     const phone_number = $(`#phone_number`, this).val();
     const email_address = $(`#email_address`, this).val();
+    const image_url = $(`#image_url`, this).val();
 
     const line_1 = $(`#line_1`, this).val();
     const line_2 = $(`#line_2`, this).val();
@@ -115,6 +112,7 @@
       last_name,
       phone_number,
       email_address,
+      image_url,
       line_1,
       line_2,
       city,
