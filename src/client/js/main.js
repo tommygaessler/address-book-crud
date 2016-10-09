@@ -60,8 +60,8 @@
   });
 
   $('.edit-contact-form select').on('change', function() {
-    const id = $("option:selected", this).val();
-    console.log($("option:selected", this).val());
+    const id = $('option:selected', this).val();
+    console.log($('option:selected', this).val());
 
     if (id === 'default') {
       $(`.edit-contact-form #line_1`).val('');
@@ -98,18 +98,17 @@
     event.preventDefault();
 
     const id = $(this).data('id');
-    console.log(id);
 
-    const first_name = $(`.edit-contact-form #first_name`).val();
-    const last_name = $(`.edit-contact-form #last_name`).val();
-    const phone_number = $(`.edit-contact-form #phone_number`).val();
-    const email_address = $(`.edit-contact-form #email_address`).val();
+    const first_name = $(`#first_name`, this).val();
+    const last_name = $(`#last_name`, this).val();
+    const phone_number = $(`#phone_number`, this).val();
+    const email_address = $(`#email_address`, this).val();
 
-    const line_1 = $(`.edit-contact-form #line_1`).val();
-    const line_2 = $(`.edit-contact-form #line_2`).val();
-    const city = $(`.edit-contact-form #city`).val();
-    const state = $(`.edit-contact-form #state`).val();
-    const zip = $(`.edit-contact-form #zip`).val();
+    const line_1 = $(`#line_1`, this).val();
+    const line_2 = $(`#line_2`, this).val();
+    const city = $(`#city`, this).val();
+    const state = $(`#state`, this).val();
+    const zip = $(`#zip`, this).val();
 
     const editContactForm = {
       first_name,
@@ -130,7 +129,6 @@
       method: 'PUT',
       data: editContactForm
     }).done((data) => {
-      console.log('done bitch');
       location.reload();
     }).fail((error) => {
       console.log(error);
