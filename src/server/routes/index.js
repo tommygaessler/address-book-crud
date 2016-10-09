@@ -60,6 +60,11 @@ router.post('/contacts/add', (req, res, next) => {
   });
 });
 
+router.put('/contacts/edit/:id', (req, res, next) => {
+  console.log(req.params.id);
+  console.log(req.body);
+});
+
 router.delete('/contacts/delete/:id', (req, res, next) => {
   const id = req.params.id;
 
