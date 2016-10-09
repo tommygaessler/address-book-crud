@@ -1,5 +1,4 @@
-
-'use strict'
+'use strict';
 
 exports.seed = (knex, Promise) => {
   return Promise.all([
@@ -31,4 +30,4 @@ exports.seed = (knex, Promise) => {
       zip: '80016'
     })
   ]);
-}
+};

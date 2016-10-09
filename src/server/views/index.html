@@ -6,7 +6,7 @@
 
   <div class="container">
     <h1>{{ title }}</h1>
-    <button type="button" class="btn btn-success add-contact" data-toggle="modal" data-target="#myModal">Add Contact</button>
+    <button type="button" class="btn btn-success add-contact" data-toggle="modal" data-target="#myModal" id="add-contact">Add Contact</button>
     {% include "_modal.html" %}
     {% for contact in contacts %}
     <div class="row well well-lg">
@@ -20,7 +20,8 @@
         <p>{{ contact.line_1 }}{% if contact.line_2 %} {{ contact.line_2 }} {% endif %}, {{ contact.city }} {{ contact.state }}, {{ contact.zip }}</p>
       </div>
       <div class="col-md-2">
-        <button type="button" class="btn btn-warning btn-block edit-contact" data-id="{{ contact.contact_id }}">Edit</button>
+        <button type="button" class="btn btn-warning btn-block edit-contact" data-toggle="modal" data-target="#editModal{{ contact.id }}" id="edit-contact">Edit Contact</button>
+        {% include "_editModal.html" %}
       </div>
       <div class="col-md-2">
         <button type="button" class="btn btn-danger btn-block delete-contact" data-id="{{ contact.contact_id }}" id="delete-contact">Delete</button>

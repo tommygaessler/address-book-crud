@@ -1,5 +1,4 @@
-
-'use strict'
+'use strict';
 
 exports.seed = (knex, Promise) => {
   return knex('addresses').then(addresses => {
@@ -36,5 +35,5 @@ exports.seed = (knex, Promise) => {
         address_id: addresses[2].id
       })
     ]);
-  })
-}
+  });
+};
